@@ -6,7 +6,7 @@
 			<% end %>
 		</div>
 		<div class="todo_item">
-			<p style="opacity: 0.4;"><strike><%= event.title %></strike></p>
+			<p style="opacity: 0.4;"><strike><%= link_to event.title, bucket_event_path(@bucket, event.id) %></strike></p>
 		</div>
 		<div class="trash">
 			<%= link_to bucket_event_path(@bucket, event.id), method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -20,7 +20,7 @@
 			<% end %>
 		</div>
 		<div class="todo_item">
-			<p><%= event.title %></p>
+			<p><%= link_to event.title, bucket_event_path(@bucket, event.id) %></p>
 		</div>
 		<div class="trash">
 			<%= link_to bucket_event_path(@bucket, event.id), method: :delete, data: { confirm: "Are you sure?" } do %>
