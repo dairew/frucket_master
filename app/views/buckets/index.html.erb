@@ -1,12 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
+  <% @buckets.each do |bucket| %>
+    <div class="index_row_clearfix">
+        <h2 class="todo_list_title"><%= link_to bucket.title, bucket %></h2>
+        <p class="todo_list_sub_title"><%= bucket.description %></p>
+    </div>
+  <% end %>
 
-<% @buckets.each do |bucket| %>
-  <div class="index_row_clearfix">
-      <h2 class="todo_list_title"><%= link_to bucket.title, bucket %></h2>
-      <p class="todo_list_sub_title"><%= bucket.description %></p>
+  <div class="links">
+      <%= link_to "Create a Bucket", new_bucket_path %>
   </div>
+
+<% else %>
+  <h1>Welcome to Frucket!</h1>
+    <p>
+      <%= link_to "Log In",new_user_session_path,class:"btn btn-warning btn-lg"%> 
+      <%= link_to "Sign Up",new_user_registration_path,class:"btn btn-primary btn-lg"%>
+    </p>
 <% end %>
 
-<div class="links">
-    <%= link_to "Create a Bucket", new_bucket_path %>
-</div>
+<% if user_signed_in? %>
+  <%= link_to "Log Out",destroy_user_session_path, method: :delete, class:"btn btn-primary btn-lg"%>
+<% end %>
