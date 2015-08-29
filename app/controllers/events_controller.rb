@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_bucket
   before_action :set_event, except: [:create]
+  before_action :authenticate_user!, except: [:index, :show]
+
 
   # GET /events
   # GET /events.json
