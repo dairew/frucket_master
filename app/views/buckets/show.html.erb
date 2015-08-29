@@ -1,14 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @bucket.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @bucket.description %>
-</p>
+<h2 class="todo_list_title"><%= @bucket.title %></h2>
+<p class = "todo_list_sub_title"><%= @bucket.description %></p>
 
 <div id="todo_items_wrapper">
 	<%= render @bucket.events %>
@@ -17,5 +10,8 @@
 	</div>
 </div>
 
-<%= link_to 'Edit', edit_bucket_path(@bucket) %> |
-<%= link_to 'Back', buckets_path %>
+<div class="links">
+	<%= link_to 'Edit', edit_bucket_path(@bucket) %> |
+	<%= link_to 'Delete', bucket_path(@bucket), method: :delete, data: { confirm: "Are you sure?"} %> |
+	<%= link_to 'Back', buckets_path %>
+</div>

@@ -28,7 +28,7 @@ class BucketsController < ApplicationController
 
     respond_to do |format|
       if @bucket.save
-        format.html { redirect_to @bucket, notice: 'Bucket was successfully created.' }
+        format.html { redirect_to @bucket, notice: 'Booyah! Your Bucket has been created.' }
         format.json { render :show, status: :created, location: @bucket }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BucketsController < ApplicationController
   def update
     respond_to do |format|
       if @bucket.update(bucket_params)
-        format.html { redirect_to @bucket, notice: 'Bucket was successfully updated.' }
+        format.html { redirect_to @bucket, notice: 'Yay! Your Bucket has been updated.' }
         format.json { render :show, status: :ok, location: @bucket }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BucketsController < ApplicationController
   def destroy
     @bucket.destroy
     respond_to do |format|
-      format.html { redirect_to buckets_url, notice: 'Bucket was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Your Bucket was deleted.' }
       format.json { head :no_content }
     end
   end
