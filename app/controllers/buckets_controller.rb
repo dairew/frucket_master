@@ -69,6 +69,6 @@ class BucketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bucket_params
-      params.require(:bucket).permit(:title, :description)
+      params.require(:bucket).permit(:title, :description, :event_id)
     end
 end

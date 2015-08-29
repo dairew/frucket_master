@@ -1,1 +1,2 @@
-<p><%= event.title %></p>s
+<p><%= event.title %></p>
+<%= link_to "Delete", bucket_event_path(@bucket, event.id), method: :delete, data: { confirm: "Are you sure?" } %>

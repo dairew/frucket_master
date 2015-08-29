@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event # only: [:show, :edit, :update, :destroy]
-
+  before_action :set_bucket
+  
   # GET /events
   # GET /events.json
   def index
@@ -26,16 +26,6 @@ class EventsController < ApplicationController
   def create
     @event = @bucket.events.create(event_params)
     redirect_to @bucket
-
-    #respond_to do |format|
-      #if @event.save
-        #format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        #format.json { render :show, status: :created, location: @event }
-      #else
-        #format.html { render :new }
-        #format.json { render json: @event.errors, status: :unprocessable_entity }
-      #end
-    #end
   end
 
   # PATCH/PUT /events/1
@@ -55,21 +45,21 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @event = @bucket.events.find(params[:id])
+      if @event.destroy
+          flash[:success] = "Event item was deleted."
+      else
+          flash[:error] = "Could not be completed."
+      end
+      redirect_to @bucket
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Bucket.find(params[:event_id])
+    private
+    def set_bucket
+    @bucket = Bucket.find(params[:bucket_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :bucket_id)
+      params[:event].permit(:content, :title, :location)
     end
 end
