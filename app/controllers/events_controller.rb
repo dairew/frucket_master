@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_bucket
-  
+  before_action :set_event, except: [:create]
+
   # GET /events
   # GET /events.json
   def index
@@ -45,7 +46,6 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = @bucket.events.find(params[:id])
       if @event.destroy
           flash[:success] = "Event item was deleted."
       else
@@ -54,9 +54,18 @@ class EventsController < ApplicationController
       redirect_to @bucket
   end
 
+  def complete
+    @event.update_attribute(:completed_at, Time.now)
+    redirect_to @bucket, notice: "Congrats! You completed an event."
+  end
+
     private
     def set_bucket
-    @bucket = Bucket.find(params[:bucket_id])
+      @bucket = Bucket.find(params[:bucket_id])
+    end
+
+    def set_event
+      @event = @bucket.events.find(params[:id])
     end
 
     def event_params
