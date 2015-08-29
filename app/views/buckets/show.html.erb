@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bucket.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bucket.description %>
+</p>
+
+<div id="todo_items_wrapper">
+	<%= render @bucket.events %>
+	<div id="form">
+		<%= render "events/form" %>
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_bucket_path(@bucket) %> |
+<%= link_to 'Back', buckets_path %>
