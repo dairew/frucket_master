@@ -29,14 +29,14 @@ class EventsController < ApplicationController
   def create
     @event = @bucket.events.create(event_params)
     redirect_to @bucket
-  end
+  end 
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @event, notice: 'Event has been updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }

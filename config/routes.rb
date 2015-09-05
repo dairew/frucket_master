@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   root "buckets#index"
+  get "edit_event" => "events#edit"
+  get "event" => "events#show"
 end

@@ -4,7 +4,7 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Add a Description:</strong>
   <%= @event.description %>
 </p>
 
@@ -13,5 +13,8 @@
   <%= @event.bucket %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="links">
+	<%= link_to 'Edit', edit_event_path(@event) %> |
+	<%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %> |
+	<%= link_to 'Back', bucket_path(@bucket) %>
+</div>
