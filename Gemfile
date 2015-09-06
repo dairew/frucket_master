@@ -27,7 +27,9 @@ gem 'devise', '~> 3.4.0'
 # against better judgement...bootstrap gem
 gem 'bootstrap-sass'
 # pagination gem
-gem 'will_paginate'		
+gem 'will_paginate'	
+# upvoting gem
+gem 'acts_as_votable', '~> 0.10.0'	
 
 
 # Use ActiveModel has_secure_password

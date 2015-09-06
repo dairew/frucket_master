@@ -1,0 +1,4 @@
+<%= link_to "Upvote", like_bucket_event_path(event), method: :put , class: "btn btn-default btn-sm" do %>
+		<span class="glyphicon glyphicon-chevron-up">	</span>
+			Upvote <%= @bucket.event.get_upvotes.size %>
+	<% end %>%>

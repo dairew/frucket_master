@@ -3,28 +3,20 @@ class BucketsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
 
-  # GET /buckets
-  # GET /buckets.json
   def index
     @buckets = Bucket.all
   end
 
-  # GET /buckets/1
-  # GET /buckets/1.json
   def show
   end
 
-  # GET /buckets/new
   def new
     @bucket = Bucket.new
   end
 
-  # GET /buckets/1/edit
   def edit
   end
 
-  # POST /buckets
-  # POST /buckets.json
   def create
     @bucket = Bucket.new(bucket_params)
 
@@ -39,8 +31,6 @@ class BucketsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /buckets/1
-  # PATCH/PUT /buckets/1.json
   def update
     respond_to do |format|
       if @bucket.update(bucket_params)
@@ -51,8 +41,6 @@ class BucketsController < ApplicationController
     end
   end
 
-  # DELETE /buckets/1
-  # DELETE /buckets/1.json
   def destroy
     @bucket.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class BucketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_bucket
       @bucket = Bucket.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def bucket_params
       params.require(:bucket).permit(:title, :description, :event_id)
     end

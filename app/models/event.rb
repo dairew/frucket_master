@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
+  acts_as_votable
   belongs_to :bucket
+
 
   def completed?
   	!completed_at.blank?

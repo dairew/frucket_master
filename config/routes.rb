@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :events do 
     	member do
     		patch :complete
+        put "like", to: "events#upvote"
     	end
     end
   end
