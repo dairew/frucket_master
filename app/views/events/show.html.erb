@@ -8,12 +8,6 @@
   <%= @event.description %>
 </p>
 
-<ul class="nav nav-tabs">
-  <li><%= link_to 'Where', eventwhere_path %>
-  <li><%= link_to 'When', eventwhen_path %></li>
-  <li><%= link_to 'Notes', eventnotes_path %></li>
-</ul>
-
 <div class="links">
 	<%= link_to 'Edit', edit_bucket_event_path %> |
 	<%= link_to 'Delete', bucket_event_path, method: :delete, data: { confirm: "Are you sure?"} %> |

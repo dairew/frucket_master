@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 	
-  resources :details
   devise_for :users
   
   resources :buckets do 
