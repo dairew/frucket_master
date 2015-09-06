@@ -4,17 +4,18 @@
 </p>
 
 <p>
-  <strong>Add a Description:</strong>
+  <strong>Description:</strong>
   <%= @event.description %>
 </p>
 
-<p>
-  <strong>Bucket:</strong>
-  <%= @event.bucket %>
-</p>
+<ul class="nav nav-tabs">
+  <li><%= link_to 'Where', eventwhere_path %>
+  <li><%= link_to 'When', eventwhen_path %></li>
+  <li><%= link_to 'Notes', eventnotes_path %></li>
+</ul>
 
 <div class="links">
-	<%= link_to 'Edit', edit_event_path(@event) %> |
-	<%= link_to 'Delete', event_path(@event), method: :delete, data: { confirm: "Are you sure?"} %> |
+	<%= link_to 'Edit', edit_bucket_event_path %> |
+	<%= link_to 'Delete', bucket_event_path, method: :delete, data: { confirm: "Are you sure?"} %> |
 	<%= link_to 'Back', bucket_path(@bucket) %>
 </div>

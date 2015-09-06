@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   before_action :set_event, except: [:create]
   before_action :authenticate_user!, except: [:index, :show]
 
-
   # GET /events
   # GET /events.json
   def index
@@ -35,12 +34,10 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event has been updated.' }
-        format.json { render :show, status: :ok, location: @event }
+      if @event.update(bucket_params)
+        redirect_to @event, notice: "Pin was successfully updated."
       else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
     end
   end
@@ -57,7 +54,7 @@ class EventsController < ApplicationController
   end
 
   def complete
-    @event.update_attribute(:completed_at, Time.now)
+    @event.toggle_completion
     redirect_to @bucket, notice: "Congrats! You completed an event."
   end
 

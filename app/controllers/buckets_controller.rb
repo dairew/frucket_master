@@ -44,11 +44,9 @@ class BucketsController < ApplicationController
   def update
     respond_to do |format|
       if @bucket.update(bucket_params)
-        format.html { redirect_to @bucket, notice: 'Yay! Your Bucket has been updated.' }
-        format.json { render :show, status: :ok, location: @bucket }
+        redirect_to @bucket, notice: "Pin was successfully updated."
       else
-        format.html { render :edit }
-        format.json { render json: @bucket.errors, status: :unprocessable_entity }
+        render action: "edit"
       end
     end
   end

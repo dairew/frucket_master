@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 	
+  resources :details
   devise_for :users
+  
   resources :buckets do 
     resources :events do 
     	member do
@@ -10,6 +12,4 @@ Rails.application.routes.draw do
   end
 
   root "buckets#index"
-  get "edit_event" => "events#edit" #edit for individual vents
-  get "event" => "events#show" #delete for individual events
 end
