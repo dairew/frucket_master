@@ -1,0 +1,12 @@
+<div class="row clearfix">
+<!-- Put upvoting here -->
+	<div class="todo_item">
+		<p><%= @whenoption.content %></p>
+	</div>
+
+ 	<div class="trash">
+		<%= link_to bucket_event_whenoption_path(@bucket, @event, whenoption.id), :method => :delete do %>
+			<i class="fa fa-trash"></i>
+		<% end %>
+	</div>
+</div>

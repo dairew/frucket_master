@@ -1,0 +1,4 @@
+<%= form_for ([@bucket, @event, @whenoption]) do |f| %>
+  <%= f.text_field :content, placeholder: "Suggest a Time" %>
+  <%= f.submit "Send" %>
+<% end %>

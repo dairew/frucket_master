@@ -8,6 +8,21 @@ Rails.application.routes.draw do
     		patch :complete
         put "like", to: "events#upvote"
     	end
+      resources :whenoptions #do
+        # member do
+        #   post "upvote"
+        # end
+      #end
+      # resources :whenoptions do
+      #   member do
+      #     post "upvote"
+      #   end
+      # end
+      # resources :whenoptions do
+      #   member do
+      #     post "upvote"
+      #   end
+      # end
     end
   end
 

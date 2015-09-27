@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @event = @bucket.events.find(params[:id])
+    @whenoption = Whenoption.new(:event=>@event)
   end
 
   def new
@@ -48,12 +49,12 @@ class EventsController < ApplicationController
     redirect_to @bucket, notice: "Congrats! You completed an event."
   end
 
-  def upvote
-    @bucket = Bucket.find(params[:bucket_id])
-    @event = @bucket.events.find(params[:id])
-    @event.upvote_by current_user
-    redirect_to bucket_events_path(@bucket)
-  end
+  # def upvote
+  #   @bucket = Bucket.find(params[:bucket_id])
+  #   @event = @bucket.events.find(params[:id])
+  #   @event.upvote_by current_user
+  #   redirect_to bucket_events_path(@bucket)
+  # end
 
   private
   def set_bucket
@@ -65,6 +66,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params[:event].permit(:content, :title, :location)
+    params[:event].permit(:content, :title, :location, :bucket_id)
   end
 end

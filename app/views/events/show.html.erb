@@ -3,10 +3,10 @@
   <%= @event.title %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Description:</strong>
   <%= @event.description %>
-</p>
+</p> -->
 
 <div>
 	<!-- tabs navigation -->
@@ -18,14 +18,29 @@
 
 	<!-- tab sections -->
 	<div class="tab-content">
-		<div class="tab-pane active" id="When">
-			<p>This is our first tab yadada</p>
+		<div class="tab-pane active todo_items_wrapper" id="When">
+			<%= render @event.whenoptions %>
+
+			<div id="form">
+				<%= render "whenoptions/form" %>
+			</div>
+
 		</div>
 		<div class="tab-pane" id="Where">
+
+
 			<p>This is our second tab</p>
+
+
 		</div>
+
+
 		<div class="tab-pane" id="Notes">
+
+		
 			<p>This is our third tab</p>
+
+
 		</div>
 	</div>
 

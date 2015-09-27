@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906054719) do
+ActiveRecord::Schema.define(version: 20150927064744) do
 
   create_table "buckets", force: :cascade do |t|
     t.string   "title"
@@ -63,5 +63,14 @@ ActiveRecord::Schema.define(version: 20150906054719) do
 
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+
+  create_table "whenoptions", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "whenoptions", ["event_id"], name: "index_whenoptions_on_event_id"
 
 end
