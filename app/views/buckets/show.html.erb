@@ -3,9 +3,12 @@
 
 <div id="todo_items_wrapper">
 	<%= render @bucket.events %>
-		<div class="btn-group pull-right">
+<%
+=begin %>		<div class="btn-group pull-right">
 			<%= render "events/upvote" %>
 		</div>
+<%
+=end %>	
 	<div id="form">
 		<%= render "events/form" %>
 	</div>

@@ -8,6 +8,36 @@
   <%= @event.description %>
 </p>
 
+<div>
+	<!-- tabs navigation -->
+	<ul class="nav nav-tabs" data-tabs="tabs">
+		<li class="active"><a data-toggle="tab" href="#When">When</a></li>
+		<li><a data-toggle="tab" href="#Where">Where</a></li>
+		<li><a data-toggle="tab" href="#Notes">Notes</a></li>
+	</ul>
+
+	<!-- tab sections -->
+	<div class="tab-content">
+		<div class="tab-pane active" id="When">
+			<p>This is our first tab yadada</p>
+		</div>
+		<div class="tab-pane" id="Where">
+			<p>This is our second tab</p>
+		</div>
+		<div class="tab-pane" id="Notes">
+			<p>This is our third tab</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	    jQuery(document).ready(function ($) {
+	        $('#tabs').tab();
+	    });
+	</script>    
+</div>
+
+<script type="text/javascript" src="../bootstrap/js/bootstrap.js"></script>
+
 <div class="links">
 	<%= link_to 'Edit', edit_bucket_event_path %> |
 	<%= link_to 'Delete', bucket_event_path, method: :delete, data: { confirm: "Are you sure?"} %> |
